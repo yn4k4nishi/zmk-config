@@ -6,11 +6,12 @@
 
 / {
     chosen {
-        zmk,physical-layout = &default_layout;
+        zmk, kscan = &default_kscan;
     };
 
-    kscan: kscan {
+    default_kscan: kscan {
         compatible = "zmk,kscan-gpio-direct";
+        label = "default_kscan"
         wakeup-source;
 
         input-gpios =
