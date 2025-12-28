@@ -4,8 +4,6 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-#include "j1okabe-layouts.dtsi"
-
 / {
     chosen {
         zmk,physical-layout = &default_layout;
