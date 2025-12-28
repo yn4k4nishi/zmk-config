@@ -1,0 +1,6 @@
+if SHIELD_J1OKABE
+
+config ZMK_KEYBOARD_NAME
+    default "j1okabe"
+
+endif # SHIELD_J1OKABE

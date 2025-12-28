@@ -1,0 +1,2 @@
+config SHIELD_J1OKABE
+    def_bool $(shields_list_contains,j1okabe)

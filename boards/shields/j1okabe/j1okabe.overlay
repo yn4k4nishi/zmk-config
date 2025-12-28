@@ -1,0 +1,26 @@
+// This file was generated from a template. Edit it to match your keyboard.
+// See https://zmk.dev/docs/development/hardware-integration/new-shield for more
+// instructions.
+
+#include <dt-bindings/zmk/matrix_transform.h>
+
+#include "j1okabe-layouts.dtsi"
+
+/ {
+    chosen {
+        zmk,physical-layout = &default_layout;
+    };
+
+    kscan: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+
+        input-gpios =
+            <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+            <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+            <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+            <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+            <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
+            <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    };
+};
