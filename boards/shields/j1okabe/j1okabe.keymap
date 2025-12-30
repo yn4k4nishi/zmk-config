@@ -3,7 +3,7 @@
 
 / {
     macros {
-        vscode_debug_stop : vscode_debug_stop {
+        vscode_debug_stop: vscode_debug_stop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <40>;
