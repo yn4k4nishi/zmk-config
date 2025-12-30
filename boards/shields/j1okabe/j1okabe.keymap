@@ -1,8 +1,21 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     macros {
+        vscode_debug_restart: vscode_debug_restart {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LSHIFT>,
+                <&macro_press &kp LCTRL>,
+                <&macro_tap &kp F5>,
+                <&macro_release &kp LCTRL>,
+                <&macro_release &kp LSHIFT>;
+        };
         vscode_debug_stop: vscode_debug_stop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -13,16 +26,60 @@
                 <&macro_tap &kp F5>,
                 <&macro_release &kp LSHIFT>;
         };
+        win_mdesktop_right: win_mdesktop_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp RIGHT>,
+                <&macro_release &kp LWIN>,
+                <&macro_release &kp LCTRL>;
+        };
+        win_mdesktop_left: win_mdesktop_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LCTRL>,
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp LEFT>,
+                <&macro_release &kp LWIN>,
+                <&macro_release &kp LCTRL>;
+        };        
+        win_mdesktop_tab: win_mdesktop_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp TAB>,
+                <&macro_release &kp LWIN>;
+        };
+        win_mdesktop_lock: win_mdesktop_lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp L>,
+                <&macro_release &kp LWIN>;
+        };
     };
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp N1
-                &kp Q   &kp W   &none   &none
-                &kp A   &kp S   &kp D   &vscode_debug_stop
-                &kp Z   &kp X   &kp C   &kp V
+                &kp BT_CLR
+                &none   &none   &none   &none
+                &kp F5  &kp F10 &vscode_debug_restart   &vscode_debug_stop
+                &win_mdesktop_left   &win_mdesktop_right   &win_mdesktop_tab   &win_mdesktop_lock
             >;
         };
     };
