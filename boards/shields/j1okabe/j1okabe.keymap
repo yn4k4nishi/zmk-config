@@ -2,14 +2,26 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        vscode_debug_stop : vscode_debug_stop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings =
+                <&macro_press &kp LSHIFT>,
+                <&macro_tap &kp F5>,
+                <&macro_release &kp LSHIFT>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
                 &kp N1
-                &kp Q   &kp W   &kp E   &kp R
-                &kp A   &kp S   &kp D   &kp F
+                &kp Q   &kp W   &none   &none
+                &kp A   &kp S   &kp D   &vscode_debug_stop
                 &kp Z   &kp X   &kp C   &kp V
             >;
         };
